@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.*;
-import static org.agileindia.mathworks.Filter.*;
 
 public class FilterSpec {
     @Test
@@ -16,7 +15,7 @@ public class FilterSpec {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
 
         //When
-        List<Integer> primeNumbers = Filter.select(prime, numbers);
+        List<Integer> primeNumbers = Filter.select(Condition.prime, numbers);
 
         //Then
         assertThat(primeNumbers, hasSize(2));
@@ -30,7 +29,7 @@ public class FilterSpec {
         List<Integer> numbers = Arrays.asList(-1, 2, -3, 4);
 
         //When
-        List<Integer> primeNumbers = Filter.select(prime, numbers);
+        List<Integer> primeNumbers = Filter.select(Condition.prime, numbers);
 
         //Then
         assertThat(primeNumbers, hasSize(1));
@@ -44,7 +43,7 @@ public class FilterSpec {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, -1);
 
         //When
-        List<Integer> oddNumbers = Filter.select(odd, numbers);
+        List<Integer> oddNumbers = Filter.select(Condition.odd, numbers);
 
         //Then
         assertThat(oddNumbers, hasSize(3));
