@@ -29,8 +29,3 @@ application {
     // Define the main class for the application.
     mainClass = 'solid.refactoring.App'
 }
-
-tasks.named('test') {
-    // Use junit platform for unit tests.
-    useJUnitPlatform()
-}

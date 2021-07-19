@@ -1,0 +1,14 @@
+.gradle
+.idea
+build
+dist
+out
+
+*.iml
+*.ipr
+*.iws
+**/resourceDoc.xml
+.pid.lock
+logs
+dependency-check-data
+/bin/
