@@ -16,7 +16,7 @@ public class FilterSpec {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, -1, -3);
 
         //When
-        List<Integer> primeNumbers = Filter.select(Collections.singletonList(Condition.prime), numbers);
+        List<Integer> primeNumbers = Filter.select(numbers, Condition.prime);
 
         //Then
         assertThat(primeNumbers, hasSize(2));
@@ -29,7 +29,7 @@ public class FilterSpec {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, -1);
 
         //When
-        List<Integer> oddNumbers = Filter.select(Collections.singletonList(Condition.odd), numbers);
+        List<Integer> oddNumbers = Filter.select(numbers, Condition.odd);
 
         //Then
         assertThat(oddNumbers, hasSize(3));
@@ -42,7 +42,7 @@ public class FilterSpec {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, -1, -2, -3);
 
         //When
-        List<Integer> oddPrimes = Filter.select(Arrays.asList(Condition.odd, Condition.prime), numbers);
+        List<Integer> oddPrimes = Filter.select(numbers, Condition.odd, Condition.prime);
 
         //Then
         assertThat(oddPrimes, containsInAnyOrder(3, 5, 7));

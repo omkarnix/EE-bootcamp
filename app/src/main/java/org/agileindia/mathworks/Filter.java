@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Filter {
 
-    public static List<Integer> select(List<Condition> conditions, List<Integer> numbers) {
+    public static List<Integer> select(List<Integer> numbers, Condition... conditions) {
         List<Integer> selected = new ArrayList<>();
         for (int number : numbers) {
             boolean allConditionsSatisfied = true;
