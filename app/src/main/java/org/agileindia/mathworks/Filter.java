@@ -8,18 +8,20 @@ public class Filter {
     public static List<Integer> select(List<Integer> numbers, Condition... conditions) {
         List<Integer> selected = new ArrayList<>();
         for (int number : numbers) {
-            boolean allConditionsSatisfied = true;
-            for (Condition condition : conditions) {
-                if (!condition.isSatisfiedBy(number)) {
-                    allConditionsSatisfied = false;
-                    break;
-                }
-            }
-            if (allConditionsSatisfied) {
+            if (areAllConditionsSatisfied(number, conditions)) {
                 selected.add(number);
             }
         }
         return selected;
+    }
+
+    private static boolean areAllConditionsSatisfied(int number, Condition... conditions) {
+        for (Condition condition : conditions) {
+            if (!condition.isSatisfiedBy(number)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
