@@ -5,23 +5,14 @@ import java.util.List;
 
 public class Filter {
 
-    public static List<Integer> select(List<Integer> numbers, Condition... conditions) {
+    public static List<Integer> select(List<Integer> numbers, Condition condition) {
         List<Integer> selected = new ArrayList<>();
         for (int number : numbers) {
-            if (areAllConditionsSatisfied(number, conditions)) {
+            if (condition.isSatisfiedBy(number)) {
                 selected.add(number);
             }
         }
         return selected;
-    }
-
-    private static boolean areAllConditionsSatisfied(int number, Condition... conditions) {
-        for (Condition condition : conditions) {
-            if (!condition.isSatisfiedBy(number)) {
-                return false;
-            }
-        }
-        return true;
     }
 
 }

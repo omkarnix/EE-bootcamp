@@ -5,4 +5,8 @@ public interface Condition {
     Condition odd = new Odd();
 
     boolean isSatisfiedBy(int number);
+
+    static Condition and(Condition... conditions) {
+        return new And(conditions);
+    }
 }
